@@ -5,7 +5,7 @@
 */
 window.PORTFOLIO = {
   profile: {
-    name: "RuffiC",
+    name: "regi",
     role: "Independent Roblox developer",
     yearsExperience: "04+",
     primaryStack: "Luau",
@@ -13,7 +13,7 @@ window.PORTFOLIO = {
     aboutLead: "I make Roblox game systems with a focus on clean Luau, dependable gameplay, and code that stays easy to build on.",
     about: [
       "I work across the systems that keep a Roblox game feeling responsive and reliable, from the first player action to saved progress.",
-      "Add a few lines about your background, how you like to work, and the kinds of projects you want to take on."
+      "I enjoy collaborating with teams on the details that make a game feel polished, from combat flow to the data behind progression."
     ],
     skills: ["Luau", "Roblox Studio", "Gameplay systems", "Player data"],
     email: "",
@@ -33,8 +33,17 @@ window.PORTFOLIO = {
       imageAlt: "Screenshot from Your game name",
       gameUrl: "https://www.roblox.com/games/...",
       videoUrl: "https://youtu.be/...",
-      accent: "lime",
+      accent: "blue",
       tags: ["Combat", "Data"]
+    }
+    */
+  ],
+  videos: [
+    /*
+    {
+      title: "Combat system",
+      description: "A short note about what this clip shows.",
+      youtubeUrl: "https://youtu.be/VIDEO_ID"
     }
     */
   ],

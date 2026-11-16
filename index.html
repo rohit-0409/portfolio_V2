@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#10110f" />
-    <meta name="description" content="Roblox scripting and game systems by RuffiC." />
-    <title>RuffiC — Roblox Scripter</title>
+    <meta name="theme-color" content="#071321" />
+    <meta name="description" content="Roblox scripting and game systems by regi." />
+    <title>regi — Roblox Scripter</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
@@ -17,7 +17,7 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header" id="top">
       <div class="header-inner">
-        <a class="brand" href="#top" aria-label="RuffiC home"><span data-profile-name>RuffiC</span><i aria-hidden="true">.</i></a>
+        <a class="brand" href="#top" aria-label="regi home"><span data-profile-name>regi</span><i aria-hidden="true">.</i></a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
           <span class="menu-toggle-label">Menu</span>
           <span class="menu-toggle-icon" aria-hidden="true"><i></i><i></i></span>
@@ -25,6 +25,7 @@
         <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
           <a href="#top">Home</a>
           <a href="#work">Work</a>
+          <a href="#videos">Demos</a>
           <a href="#systems">Systems</a>
           <a href="#reviews" data-reviews-nav>Reviews</a>
           <a href="#about">About</a>
@@ -40,10 +41,10 @@
           <h1 id="hero-title">Roblox<br /><em>Scripting Services</em></h1>
           <p class="hero-summary" data-profile-intro>Combat, frameworks, data, and custom systems. Clean Luau built to stay readable and perform under load.</p>
           <div class="hero-actions">
-            <a class="button button-lime" href="#work">View my work <span aria-hidden="true">↘</span></a>
+            <a class="button button-primary" href="#work">View my work <span aria-hidden="true">↘</span></a>
             <a class="button button-quiet" href="#contact">Let's talk <span aria-hidden="true">↗</span></a>
           </div>
-          <div class="hero-note"><span class="note-mark">R</span><span>Thoughtful systems<br />for memorable games</span><span class="note-rule"></span><a href="#work">Scroll to explore <b aria-hidden="true">↓</b></a></div>
+          <div class="hero-note"><span class="note-mark" data-profile-initial>R</span><span>Thoughtful systems<br />for memorable games</span><span class="note-rule"></span><a href="#work">Scroll to explore <b aria-hidden="true">↓</b></a></div>
         </div>
         <div class="hero-visual" aria-label="Roblox scripting profile card">
           <div class="visual-glow"></div>
@@ -66,7 +67,7 @@
           </div>
           <div class="orbit-label label-top">BUILT FOR PLAY</div>
           <div class="orbit-label label-bottom">ROBLOX · LUAU · SYSTEMS</div>
-          <div class="visual-sticker" aria-hidden="true">R</div>
+          <div class="visual-sticker" data-profile-initial aria-hidden="true">R</div>
         </div>
       </section>
 
@@ -88,10 +89,20 @@
         </div>
       </section>
 
+      <section class="videos-section section-pad" id="videos" aria-labelledby="videos-title">
+        <div class="page-shell">
+          <div class="section-heading">
+            <div><span class="section-kicker">02 / Gameplay clips</span><h2 id="videos-title">In <em>motion.</em></h2></div>
+            <p>Watch game footage and system demos.</p>
+          </div>
+          <div class="video-grid" id="video-grid"></div>
+        </div>
+      </section>
+
       <section class="systems-section section-pad" id="systems" aria-labelledby="systems-title">
         <div class="page-shell">
           <div class="section-heading">
-            <div><span class="section-kicker">02 / Systems & components</span><h2 id="systems-title">Built <em>to work.</em></h2></div>
+            <div><span class="section-kicker">03 / Systems & components</span><h2 id="systems-title">Built <em>to work.</em></h2></div>
             <p>Focused, maintainable systems that give a game room to grow.</p>
           </div>
           <div class="systems-grid" id="systems-grid"></div>
@@ -101,7 +112,7 @@
       <section class="reviews-section section-pad" id="reviews" aria-labelledby="reviews-title">
         <div class="page-shell">
           <div class="section-heading">
-            <div><span class="section-kicker">03 / Client notes</span><h2 id="reviews-title">What clients <em>say.</em></h2></div>
+            <div><span class="section-kicker">04 / Client notes</span><h2 id="reviews-title">What clients <em>say.</em></h2></div>
             <p>Feedback shared by people I've worked with.</p>
           </div>
           <div class="reviews-grid" id="reviews-grid"></div>
@@ -110,7 +121,7 @@
 
       <section class="about-section section-pad" id="about" aria-labelledby="about-title">
         <div class="page-shell about-layout">
-          <div class="about-heading"><span class="section-kicker">04 / A bit about me</span><h2 id="about-title">Hey, I'm<br /><em data-about-name>RuffiC.</em></h2><div class="about-monogram" aria-hidden="true">R</div></div>
+          <div class="about-heading"><span class="section-kicker">05 / A bit about me</span><h2 id="about-title">Hey, I'm<br /><em data-about-name>regi.</em></h2><div class="about-monogram" data-profile-initial aria-hidden="true">R</div></div>
           <div class="about-copy">
             <p class="about-lead" data-about-lead>I make Roblox game systems with a focus on clean Luau, dependable gameplay, and code that stays easy to build on.</p>
             <div class="about-details" id="about-details"></div>
@@ -121,15 +132,15 @@
 
       <section class="contact-section" id="contact" aria-labelledby="contact-title">
         <div class="contact-inner page-shell">
-          <div class="contact-top"><span class="section-kicker">05 / Contact</span><span class="contact-spark" aria-hidden="true">✳</span></div>
+          <div class="contact-top"><span class="section-kicker">06 / Contact</span><span class="contact-spark" aria-hidden="true">✳</span></div>
           <div class="contact-main"><h2 id="contact-title">Got a game<br />that needs <em>scripting?</em></h2><div class="contact-aside"><p>Send over what you're building. I'll get back to you with a clear plan for the systems it needs.</p><a class="button button-dark" id="contact-link" href="https://github.com/rohit-0409" target="_blank" rel="noreferrer">Let's build it <span aria-hidden="true">↗</span></a></div></div>
-          <div class="contact-bottom"><span data-contact-handle>RuffiC · Roblox developer</span><span>Independent commissions</span></div>
+          <div class="contact-bottom"><span data-contact-handle>regi · Roblox developer</span><span>Independent commissions</span></div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer page-shell">
-      <a class="brand" href="#top"><span data-profile-name>RuffiC</span><i aria-hidden="true">.</i></a>
+      <a class="brand" href="#top"><span data-profile-name>regi</span><i aria-hidden="true">.</i></a>
       <span>Roblox developer · <span id="footer-year"></span></span>
       <a href="#top">Back to top ↑</a>
     </footer>

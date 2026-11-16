@@ -4,6 +4,7 @@
   var data = window.PORTFOLIO || {};
   var profile = data.profile || {};
   var projects = Array.isArray(data.projects) ? data.projects : [];
+  var videos = Array.isArray(data.videos) ? data.videos : [];
   var systems = Array.isArray(data.systems) ? data.systems : [];
   var reviews = Array.isArray(data.reviews) ? data.reviews : [];
 
@@ -31,6 +32,9 @@
     var name = profile.name || "Your name";
     document.querySelectorAll("[data-profile-name], [data-about-name]").forEach(function (element) {
       element.textContent = name;
+    });
+    document.querySelectorAll("[data-profile-initial]").forEach(function (element) {
+      element.textContent = name.charAt(0).toUpperCase();
     });
     text("[data-profile-role]", profile.role);
     text("[data-profile-intro]", profile.intro);
@@ -68,7 +72,7 @@
       var imagePath = safeURL(project.image);
       var media = imagePath
         ? '<img src="' + escapeHTML(imagePath) + '" alt="' + escapeHTML(project.imageAlt || project.title || "Project screenshot") + '" loading="lazy" />'
-        : '<div class="project-art" data-tone="' + escapeHTML(project.accent || "lime") + '"><span class="art-orbit"></span><span class="art-title">' + title.charAt(0) + '</span><span class="art-caption">ROBLOX / ' + String(index + 1).padStart(2, "0") + '</span></div>';
+        : '<div class="project-art" data-tone="' + escapeHTML(project.accent || "blue") + '"><span class="art-orbit"></span><span class="art-title">' + title.charAt(0) + '</span><span class="art-caption">ROBLOX / ' + String(index + 1).padStart(2, "0") + '</span></div>';
       var metrics = "";
       if (project.visits) metrics += '<span><b>' + escapeHTML(project.visits) + '</b> visits</span>';
       if (project.favourites) metrics += '<span><b>' + escapeHTML(project.favourites) + '</b> favourites</span>';
@@ -89,6 +93,44 @@
     if (!container) return;
     container.innerHTML = systems.map(function (system, index) {
       return '<article class="system-card" data-reveal><div class="system-card-top"><span>' + escapeHTML(system.number || String(index + 1).padStart(2, "0")) + ' / COMPONENT</span><span class="system-icon" aria-hidden="true">' + escapeHTML(system.icon || "✳") + '</span></div><h3>' + escapeHTML(system.title || "System") + '</h3><p>' + escapeHTML(system.description || "") + '</p><span class="system-arrow" aria-hidden="true">↗</span></article>';
+    }).join("");
+  }
+
+  function youtubeVideoId(value) {
+    if (!value) return "";
+    var raw = String(value).trim();
+    if (/^[A-Za-z0-9_-]{11}$/.test(raw)) return raw;
+    try {
+      var url = new URL(raw);
+      var host = url.hostname.replace(/^www\./, "").toLowerCase();
+      if (host === "youtu.be") {
+        var shortId = url.pathname.split("/").filter(Boolean)[0] || "";
+        return /^[A-Za-z0-9_-]{11}$/.test(shortId) ? shortId : "";
+      }
+      if (["youtube.com", "m.youtube.com", "youtube-nocookie.com"].indexOf(host) !== -1) {
+        var queryId = url.searchParams.get("v") || "";
+        var pathMatch = url.pathname.match(/^\/(?:embed|shorts|live)\/([A-Za-z0-9_-]{11})/);
+        var videoId = queryId || (pathMatch ? pathMatch[1] : "");
+        return /^[A-Za-z0-9_-]{11}$/.test(videoId) ? videoId : "";
+      }
+    } catch (_) { return ""; }
+    return "";
+  }
+
+  function renderVideos() {
+    var container = document.querySelector("#video-grid");
+    if (!container) return;
+    if (!videos.length) {
+      container.innerHTML = '<article class="video-empty"><span class="empty-mark" aria-hidden="true">▶</span><div><span class="project-category">YOUTUBE SHOWCASE</span><h3>Add your first gameplay clip.</h3><p>Paste a YouTube link into the videos list in portfolio-data.js and it will embed here.</p></div></article>';
+      return;
+    }
+    container.innerHTML = videos.map(function (video) {
+      var id = youtubeVideoId(video.youtubeUrl || video.youtubeId);
+      var title = escapeHTML(video.title || "Roblox gameplay video");
+      var player = id
+        ? '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?rel=0" title="' + title + '" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+        : '<div class="video-invalid">Add a valid YouTube URL or video ID in portfolio-data.js.</div>';
+      return '<article class="video-card" data-reveal><div class="video-player">' + player + '</div><div class="video-caption"><div><span class="project-category">GAMEPLAY / DEMO</span><h3>' + title + '</h3></div><span class="video-play" aria-hidden="true">▶</span></div><p>' + escapeHTML(video.description || "") + '</p></article>';
     }).join("");
   }
 
@@ -159,6 +201,7 @@
 
   renderProfile();
   renderProjects();
+  renderVideos();
   renderSystems();
   renderReviews();
   renderAbout();
